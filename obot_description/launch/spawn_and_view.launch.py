@@ -22,8 +22,8 @@ def generate_launch_description():
     robot_description_doc = xacro.parse(open(xacro_file))
     xacro.process_doc(robot_description_doc)
 
-    # world_file_name = 'simple_house.world'
-    # world_path = os.path.join(pkg_path, 'world', world_file_name)
+    world_file_name = 'obot_test_world.world'
+    world_path = os.path.join(pkg_path, 'world', world_file_name)
 
 
 
@@ -76,14 +76,14 @@ def generate_launch_description():
             default_value='True',
             description='Use sim time if true'),
         
-        # DeclareLaunchArgument(
-        #     'world',
-        #     default_value=world_path,
-        #     description='SDF world file',
-        # ),
+        DeclareLaunchArgument(
+            'world',
+            default_value=world_path,
+            description='SDF world file',
+        ),
 
-        ExecuteProcess(cmd=['gazebo', '-s', 'libgazebo_ros_init.so', '-s', 'libgazebo_ros_factory.so'], output='screen'),
-        # ExecuteProcess(cmd=['gazebo', '-s', 'libgazebo_ros_init.so', '-s', 'libgazebo_ros_factory.so', world_path], output='screen'),
+        # ExecuteProcess(cmd=['gazebo', '-s', 'libgazebo_ros_init.so', '-s', 'libgazebo_ros_factory.so'], output='screen'),
+        ExecuteProcess(cmd=['gazebo', '-s', 'libgazebo_ros_init.so', '-s', 'libgazebo_ros_factory.so', world_path], output='screen'),
 
         node_robot_state_publisher,
         rviz2_node,

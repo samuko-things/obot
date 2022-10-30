@@ -18,10 +18,9 @@ find_package(std_msgs REQUIRED)
 install(DIRECTORY
     config
     meshes
-    # params
     description
     launch
-    # world
+    world
     DESTINATION share/${PROJECT_NAME}/
 )
 
