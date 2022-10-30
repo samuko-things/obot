@@ -4,11 +4,7 @@ from ament_index_python.packages import get_package_share_directory
 
 
 from launch import LaunchDescription
-<<<<<<< HEAD
-from launch.actions import IncludeLaunchDescription
-=======
 from launch.actions import ExecuteProcess, IncludeLaunchDescription, RegisterEventHandler
->>>>>>> b43d28c (update urdf and launch file)
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 from launch.actions import DeclareLaunchArgument
@@ -40,39 +36,17 @@ def generate_launch_description():
     )
 
 
-<<<<<<< HEAD
-    # node_joint_state_publisher_gui = Node(
-    #     package='joint_state_publisher_gui',
-    #     executable='joint_state_publisher_gui',
-    #     output='screen'
-    # )
-
-    # node_joint_state_publisher = Node(
-    #     package='joint_state_publisher',
-    #     executable='joint_state_publisher',
-    #     output='screen'
-    # )
-
-    # # rviz_config_file_path = os.path.join(pkg_path,'config','obot_description_config.rviz')
-    # rviz2_node = Node(
-    #         package='rviz2',
-    #         namespace='',
-    #         executable='rviz2',
-    #         name='rviz2',
-    #         # arguments=['-d', [os.path.join(rviz_config_file_path)]]
-    #     )
-
-
-    # # Include the Gazebo launch file, provided by the gazebo_ros package
-    gazebo = IncludeLaunchDescription(
-                PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
-             )
+    rviz_config_file_path = os.path.join(pkg_path,'config','obot_description_config1.rviz')
+    rviz2_node = Node(
+            package='rviz2',
+            namespace='',
+            executable='rviz2',
+            name='rviz2',
+            arguments=['-d', [os.path.join(rviz_config_file_path)]]
+        )
 
 
 
-=======
->>>>>>> b43d28c (update urdf and launch file)
     # Run the spawner node from the gazebo_ros package. The entity name doesn't really matter if you only have a single robot.
      # entity name
     entity_name = 'obot'
@@ -107,22 +81,11 @@ def generate_launch_description():
         #     default_value=world_path,
         #     description='SDF world file',
         # ),
-<<<<<<< HEAD
-        
-
-        node_robot_state_publisher,
-        # node_joint_state_publisher_gui ,
-        # node_joint_state_publisher ,
-        # rviz2_node,
-        gazebo,
-=======
 
         ExecuteProcess(cmd=['gazebo', '-s', 'libgazebo_ros_init.so', '-s', 'libgazebo_ros_factory.so'], output='screen'),
         # ExecuteProcess(cmd=['gazebo', '-s', 'libgazebo_ros_init.so', '-s', 'libgazebo_ros_factory.so', world_path], output='screen'),
 
-        
-
         node_robot_state_publisher,
->>>>>>> b43d28c (update urdf and launch file)
+        rviz2_node,
         spawn_entity,
     ])

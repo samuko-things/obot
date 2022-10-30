@@ -6,7 +6,10 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+<<<<<<< HEAD
         - /RobotModel1
+=======
+>>>>>>> b43d28c (update urdf and launch file)
       Splitter Ratio: 0.5
     Tree Height: 491
   - Class: rviz_common/Selection
@@ -88,7 +91,10 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+<<<<<<< HEAD
           Value: true
+=======
+>>>>>>> b43d28c (update urdf and launch file)
         front_caster_wheel_link:
           Alpha: 1
           Show Axes: false
@@ -112,7 +118,10 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+<<<<<<< HEAD
           Value: true
+=======
+>>>>>>> b43d28c (update urdf and launch file)
         rear_caster_wheel_link:
           Alpha: 1
           Show Axes: false
@@ -123,12 +132,39 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+<<<<<<< HEAD
+=======
+        slab_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+>>>>>>> b43d28c (update urdf and launch file)
         sonar_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
+<<<<<<< HEAD
         support_link:
+=======
+        support1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        support2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        support3_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        support4_link:
+>>>>>>> b43d28c (update urdf and launch file)
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -139,19 +175,98 @@ Visualization Manager:
       Value: true
       Visual Enabled: true
     - Class: rviz_default_plugins/TF
+<<<<<<< HEAD
       Enabled: false
       Frame Timeout: 15
       Frames:
         All Enabled: false
+=======
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        base_link:
+          Value: true
+        cam_link:
+          Value: false
+        cam_optical_link:
+          Value: true
+        chassis_link:
+          Value: true
+        front_caster_holder_link:
+          Value: false
+        front_caster_wheel_link:
+          Value: false
+        imu_link:
+          Value: true
+        left_wheel_link:
+          Value: true
+        lidar_link:
+          Value: true
+        rear_caster_holder_link:
+          Value: false
+        rear_caster_wheel_link:
+          Value: false
+        right_wheel_link:
+          Value: true
+        slab_link:
+          Value: false
+        sonar_link:
+          Value: true
+        support1_link:
+          Value: false
+        support2_link:
+          Value: false
+        support3_link:
+          Value: false
+        support4_link:
+          Value: false
+>>>>>>> b43d28c (update urdf and launch file)
       Marker Scale: 0.5
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: true
       Tree:
+<<<<<<< HEAD
         {}
       Update Interval: 0
       Value: false
+=======
+        base_link:
+          chassis_link:
+            cam_link:
+              cam_optical_link:
+                {}
+            front_caster_holder_link:
+              front_caster_wheel_link:
+                {}
+            imu_link:
+              {}
+            left_wheel_link:
+              {}
+            lidar_link:
+              {}
+            rear_caster_holder_link:
+              rear_caster_wheel_link:
+                {}
+            right_wheel_link:
+              {}
+            slab_link:
+              {}
+            sonar_link:
+              {}
+            support1_link:
+              {}
+            support2_link:
+              {}
+            support3_link:
+              {}
+            support4_link:
+              {}
+      Update Interval: 0
+      Value: true
+>>>>>>> b43d28c (update urdf and launch file)
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -202,18 +317,31 @@ Visualization Manager:
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
+<<<<<<< HEAD
         X: 0.13036073744297028
         Y: 0.1352023333311081
         Z: 0.10620633512735367
+=======
+        X: 0.18269701302051544
+        Y: 0.033876240253448486
+        Z: 0.31536680459976196
+>>>>>>> b43d28c (update urdf and launch file)
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
+<<<<<<< HEAD
       Pitch: -0.12960337102413177
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
       Yaw: 0.2353971302509308
+=======
+      Pitch: 0.9453961849212646
+      Target Frame: <Fixed Frame>
+      Value: Orbit (rviz)
+      Yaw: 0.5453971028327942
+>>>>>>> b43d28c (update urdf and launch file)
     Saved: ~
 Window Geometry:
   Displays:

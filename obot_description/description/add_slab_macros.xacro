@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<robot name="obot" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+
+    <xacro:property name="chassis_height" value="0.15"/>
+    <xacro:property name="chassis_offset" value="0.0"/>
+    <xacro:property name="support_link_radius" value="0.01"/>
+
+
+
+    <!--  add slab support link -->
+
+    <joint name="support1_joint" type="fixed">
+        <parent link="chassis_link"/>
+        <child link="support1_link"/>
+        <origin xyz="${chassis_offset+0.02} 0.14 ${chassis_height}"/>
+    </joint>
+
+    <link name="support1_link">
+        <visual>
+            <origin xyz="0 0 ${(slab_height-0.01)/2}" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="${support_link_radius}" length="${slab_height-0.01}"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+           <origin xyz="0 0 ${(slab_height-0.01)/2}" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="${support_link_radius}" length="${slab_height-0.01}"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_cylinder mass="0.05" length="${slab_height-0.01}" radius="${support_link_radius}">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+
+    <gazebo reference="support1_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+
+    <joint name="support2_joint" type="fixed">
+        <parent link="chassis_link"/>
+        <child link="support2_link"/>
+        <origin xyz="${chassis_offset+0.02} -0.14 ${chassis_height}"/>
+    </joint>
+
+    <link name="support2_link">
+        <visual>
+            <origin xyz="0 0 ${(slab_height-0.01)/2}" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="${support_link_radius}" length="${slab_height-0.01}"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+           <origin xyz="0 0 ${(slab_height-0.01)/2}" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="${support_link_radius}" length="${slab_height-0.01}"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_cylinder mass="0.05" length="${slab_height-0.01}" radius="${support_link_radius}">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+
+    <gazebo reference="support2_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+
+
+    <joint name="support3_joint" type="fixed">
+        <parent link="chassis_link"/>
+        <child link="support3_link"/>
+        <origin xyz="${chassis_offset-0.14} -0.08 ${chassis_height}"/>
+    </joint>
+
+    <link name="support3_link">
+        <visual>
+            <origin xyz="0 0 ${(slab_height-0.01)/2}" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="${support_link_radius}" length="${slab_height-0.01}"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+           <origin xyz="0 0 ${(slab_height-0.01)/2}" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="${support_link_radius}" length="${slab_height-0.01}"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_cylinder mass="0.05" length="${slab_height-0.01}" radius="${support_link_radius}">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+
+    <gazebo reference="support3_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+
+    <joint name="support4_joint" type="fixed">
+        <parent link="chassis_link"/>
+        <child link="support4_link"/>
+        <origin xyz="${chassis_offset-0.14} 0.08 ${chassis_height}"/>
+    </joint>
+
+    <link name="support4_link">
+        <visual>
+            <origin xyz="0 0 ${(slab_height-0.01)/2}" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="${support_link_radius}" length="${slab_height-0.01}"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+           <origin xyz="0 0 ${(slab_height-0.01)/2}" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="${support_link_radius}" length="${slab_height-0.01}"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_cylinder mass="0.05" length="${slab_height-0.01}" radius="${support_link_radius}">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+
+    <gazebo reference="support4_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+
+
+
+    <joint name="slab_joint" type="fixed">
+        <parent link="chassis_link"/>
+        <child link="slab_link"/>
+        <origin xyz="${chassis_offset} 0 ${chassis_height+slab_height-0.01}"/>
+    </joint>
+
+
+    <link name="slab_link">
+         <visual>
+            <origin xyz="0 0 0.005" rpy="0 0 0"/>
+            <geometry>
+                <xacro:unless value="${gazebo_visual}">
+                    <mesh filename="package://obot_description/meshes/slab.stl"/>
+                </xacro:unless>
+                <xacro:if value="${gazebo_visual}">
+                    <mesh filename="$(find obot_description)/meshes/slab.stl"/>
+                </xacro:if>
+            </geometry>
+            <material name="orange"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0.005" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.2" length="0.01"/>
+            </geometry>
+        </collision>
+
+        <xacro:inertial_cylinder mass="0.05" length="0.005" radius="0.2">
+            <origin xyz="0 0 0.005" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+
+    <gazebo reference="slab_link">
+        <material>Gazebo/Orange</material>
+    </gazebo>
+
+    
+</robot>

@@ -29,11 +29,16 @@
 
 
     <xacro:property name="slab_height" value="0.3"/>
+<<<<<<< HEAD
 
     <xacro:property name="rviz_visual" value="false"/>
     <xacro:property name="gazebo_visual" value="true"/>
 
 
+=======
+    <xacro:property name="gazebo_visual" value="true"/>
+
+>>>>>>> b43d28c (update urdf and launch file)
     <xacro:arg name="laser_visual" default="false"/>
     <xacro:arg name="imu_visual"   default="true"/>
     <xacro:arg name="sonar_visual"   default="false"/>
@@ -41,9 +46,15 @@
 
 
 
+<<<<<<< HEAD
     <xacro:include filename="$(find obot_description)/description/macros.xacro"/>
     <xacro:include filename="$(find obot_description)/description/controllers.xacro"/>
 
+=======
+    <xacro:include filename="$(find obot_description)/description/inertia_macros.xacro"/>
+    <xacro:include filename="$(find obot_description)/description/part_macros.xacro"/>
+    
+>>>>>>> b43d28c (update urdf and launch file)
 
 
     
@@ -74,15 +85,22 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
+<<<<<<< HEAD
                 <xacro:if value="${rviz_visual}">
                     <mesh filename="package://obot_description/meshes/chassis.stl"/>
                 </xacro:if>
+=======
+                <xacro:unless value="${gazebo_visual}">
+                    <mesh filename="package://obot_description/meshes/chassis.stl"/>
+                </xacro:unless>
+>>>>>>> b43d28c (update urdf and launch file)
                 <xacro:if value="${gazebo_visual}">
                     <mesh filename="$(find obot_description)/meshes/chassis.stl"/>
                 </xacro:if>  
             </geometry>
             <material name="orange"/>
         </visual>
+<<<<<<< HEAD
         <visual>
             <origin xyz="0 0 ${0.15+slab_height}" rpy="0 0 0"/>
             <geometry>
@@ -95,6 +113,8 @@
             </geometry>
             <material name="orange"/>
         </visual>
+=======
+>>>>>>> b43d28c (update urdf and launch file)
 
         <collision>
             <origin xyz="0 0 0.075" rpy="0 0 0"/>
@@ -102,12 +122,15 @@
                 <cylinder radius="0.2" length="0.15"/>
             </geometry>
         </collision>
+<<<<<<< HEAD
         <collision>
             <origin xyz="0 0 ${0.15+slab_height+0.005}" rpy="0 0 0"/>
             <geometry>
                 <cylinder radius="0.2" length="0.01"/>
             </geometry>
         </collision>
+=======
+>>>>>>> b43d28c (update urdf and launch file)
 
         <xacro:inertial_cylinder mass="10" length="0.15" radius="0.2">
             <origin xyz="0 0 0.075" rpy="0 0 0"/>
@@ -126,6 +149,7 @@
 
 
 
+<<<<<<< HEAD
     <!-- SUPPORT LINK -->
 
     <joint name="support_joint" type="fixed">
@@ -150,6 +174,9 @@
     </gazebo>
 
     <!--  ########################### -->
+=======
+    <xacro:include filename="$(find obot_description)/description/add_slab_macros.xacro"/>
+>>>>>>> b43d28c (update urdf and launch file)
 
 
 
@@ -348,6 +375,18 @@
 
 
 
+<<<<<<< HEAD
+=======
+
+
+    <xacro:include filename="$(find obot_description)/description/controllers.xacro"/>
+
+
+
+
+
+
+>>>>>>> b43d28c (update urdf and launch file)
     <xacro:include filename="$(find obot_description)/description/sensors/imu.xacro"/>
     <xacro:include filename="$(find obot_description)/description/sensors/lidar.xacro"/>
     <xacro:include filename="$(find obot_description)/description/sensors/cam.xacro"/>

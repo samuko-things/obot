@@ -8,7 +8,11 @@
     <joint name="lidar_joint" type="fixed">
         <parent link="chassis_link"/>
         <child link="lidar_link"/>
+<<<<<<< HEAD
         <origin xyz="0.1 0 0.18" rpy="0 0 0"/>
+=======
+        <origin xyz="0.12 0 0.18" rpy="0 0 0"/>
+>>>>>>> b43d28c (update urdf and launch file)
         <axis xyz="0 0 0"/>
     </joint>
 
@@ -47,10 +51,17 @@
             <ray>
                 <scan>
                 <horizontal>
+<<<<<<< HEAD
                     <samples>720</samples>
                     <resolution>1</resolution>
                     <min_angle>${-pi/3}</min_angle>
                     <max_angle>${pi/3}</max_angle>
+=======
+                    <samples>360</samples>
+                    <resolution>1</resolution>
+                    <min_angle>${-pi/1.5}</min_angle>
+                    <max_angle>${pi/1.5}</max_angle>
+>>>>>>> b43d28c (update urdf and launch file)
                 </horizontal>
                 </scan>
                 <range>
