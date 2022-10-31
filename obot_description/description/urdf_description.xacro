@@ -31,7 +31,7 @@
     <xacro:property name="slab_height" value="0.3"/>
     <xacro:property name="gazebo_visual" value="true"/>
 
-    <xacro:arg name="laser_visual" default="false"/>
+    <xacro:arg name="laser_visual" default="true"/>
     <xacro:arg name="imu_visual"   default="true"/>
     <xacro:arg name="sonar_visual"   default="false"/>
     <xacro:arg name="cam_visual"   default="false"/>

@@ -39,7 +39,7 @@ def generate_launch_description():
     )
 
 
-    rviz_config_file_path = os.path.join(pkg_path,'config','obot_description_config.rviz')
+    rviz_config_file_path = os.path.join(pkg_path,'config','obot_description_config2.rviz')
     rviz2_node = Node(
             package='rviz2',
             namespace='',

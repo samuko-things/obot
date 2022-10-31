@@ -47,17 +47,10 @@
             <ray>
                 <scan>
                 <horizontal>
-<<<<<<< HEAD
-                    <samples>720</samples>
-                    <resolution>1</resolution>
-                    <min_angle>${-pi/3}</min_angle>
-                    <max_angle>${pi/3}</max_angle>
-=======
                     <samples>360</samples>
                     <resolution>1</resolution>
                     <min_angle>${-pi/1.5}</min_angle>
                     <max_angle>${pi/1.5}</max_angle>
->>>>>>> b43d28c (update urdf and launch file)
                 </horizontal>
                 </scan>
                 <range>
@@ -73,7 +66,7 @@
             </ray>
             <plugin name="laser_plugin" filename="libgazebo_ros_ray_sensor.so">
             <ros>
-                <namespace>lidar</namespace>
+                <!-- <namespace>lidar</namespace> -->
                 <remapping>~/out:=scan</remapping>
             </ros>
             <output_type>sensor_msgs/LaserScan</output_type>

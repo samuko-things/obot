@@ -15,6 +15,7 @@ import xacro
 
 
 def generate_launch_description():
+    use_sim_time = LaunchConfiguration('use_sim_time')
 
     pkg_path = get_package_share_directory('obot_description')
 
@@ -24,6 +25,8 @@ def generate_launch_description():
 
     world_file_name = 'obot_test_world.world'
     world_path = os.path.join(pkg_path, 'world', world_file_name)
+
+    ekf_file_path = os.path.join(pkg_path,'config', 'ekf.yaml')
 
 
 
@@ -36,7 +39,16 @@ def generate_launch_description():
     )
 
 
-    rviz_config_file_path = os.path.join(pkg_path,'config','obot_description_config3.rviz')
+    # Start robot localization using an Extended Kalman filter
+    node_ekf = Node(
+        package='robot_localization',
+        executable='ekf_node',
+        name='ekf_filter_node',
+        output='screen',
+        parameters=[ekf_file_path, {'use_sim_time': use_sim_time}])
+
+
+    rviz_config_file_path = os.path.join(pkg_path,'config','obot_description_config2.rviz')
     rviz2_node = Node(
             package='rviz2',
             namespace='',
@@ -86,6 +98,7 @@ def generate_launch_description():
         ExecuteProcess(cmd=['gazebo', '-s', 'libgazebo_ros_init.so', '-s', 'libgazebo_ros_factory.so', world_path], output='screen'),
 
         node_robot_state_publisher,
+        node_ekf,
         rviz2_node,
         spawn_entity,
     ])
